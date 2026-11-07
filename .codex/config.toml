@@ -1,0 +1,8 @@
+# Safe default for planning and review. A human can select workspace-write with
+# /permissions for an approved implementation or QA run.
+approval_policy = "on-request"
+sandbox_mode = "read-only"
+
+[agents]
+enabled = true
+max_concurrent_threads_per_session = 3
