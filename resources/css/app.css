@@ -64,3 +64,38 @@ body {
     font-size: 1.125rem;
     line-height: 1.75;
 }
+
+.health-panel {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e5e7eb;
+}
+
+.health-title {
+    margin: 0;
+    color: #111827;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.health-message {
+    margin: 0.75rem 0 0;
+    padding: 0.875rem 1rem;
+    border-radius: 0.625rem;
+    line-height: 1.5;
+}
+
+.health-message-loading {
+    color: #374151;
+    background: #f3f4f6;
+}
+
+.health-message-success {
+    color: #065f46;
+    background: #ecfdf5;
+}
+
+.health-message-error {
+    color: #991b1b;
+    background: #fef2f2;
+}
