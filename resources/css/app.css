@@ -7,3 +7,60 @@
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
 }
+
+:root {
+    color: #1f2937;
+    background: #f3f4f6;
+    font-family: var(--font-sans);
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+}
+
+body {
+    margin: 0;
+    min-width: 320px;
+    min-height: 100vh;
+}
+
+#app {
+    min-height: 100vh;
+}
+
+.app-shell {
+    display: grid;
+    min-height: 100vh;
+    place-items: center;
+    padding: 2rem;
+}
+
+.app-card {
+    width: min(100%, 40rem);
+    padding: 3rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 1rem;
+    background: #ffffff;
+    box-shadow: 0 1rem 2.5rem rgb(15 23 42 / 8%);
+}
+
+.app-label {
+    margin: 0 0 0.75rem;
+    color: #047857;
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.app-title {
+    margin: 0;
+    color: #111827;
+    font-size: clamp(2rem, 7vw, 3.5rem);
+    line-height: 1.1;
+}
+
+.app-description {
+    margin: 1.5rem 0 0;
+    color: #4b5563;
+    font-size: 1.125rem;
+    line-height: 1.75;
+}
