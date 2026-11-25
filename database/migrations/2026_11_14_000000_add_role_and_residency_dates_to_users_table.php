@@ -19,9 +19,18 @@ return new class extends Migration
             $table->enum('role', ['admin', 'resident'])
                 ->default('resident')
                 ->after('password');
-            $table->date('move_in_date')->after('role');
+            // Add this as nullable first so an existing development user can be backfilled.
+            $table->date('move_in_date')->nullable()->after('role');
             $table->date('move_out_date')->nullable()->after('move_in_date');
         });
+
+        DB::statement(<<<'SQL'
+            UPDATE users
+            SET move_in_date = COALESCE(DATE(created_at), '2026-11-14')
+            WHERE move_in_date IS NULL
+        SQL);
+
+        DB::statement('ALTER TABLE users MODIFY move_in_date DATE NOT NULL');
 
         DB::statement(sprintf(
             'ALTER TABLE users ADD CONSTRAINT %s CHECK (move_out_date IS NULL OR move_out_date >= move_in_date)',

@@ -20,6 +20,13 @@ The three concerns remain independent:
 lives in the house. Both boundary dates are inclusive: a person is a resident
 on both their move-in date and their move-out date.
 
+When this schema is first applied to an existing development database, legacy
+users are backfilled from the date portion of `created_at` before
+`move_in_date` becomes required. If a legacy row has no creation timestamp, the
+migration date is used as a deterministic fallback. These values exist only to
+upgrade pre-production development data and should be corrected if that data is
+kept for real operation.
+
 Date fields represent Japanese calendar dates and do not contain a timezone.
 Code that asks whether a person is currently resident must first obtain today's
 date in `Asia/Tokyo`, then pass that date to `User::isResidentOn()`.
